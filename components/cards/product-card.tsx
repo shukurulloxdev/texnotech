@@ -31,14 +31,19 @@ export default function ProductCard({ product }: Props) {
           />
         </div>
 
-        <p className="mb-1 text-2xl font-bold text-pink-600">18 999 000 so‘m</p>
+        <p className="mb-1 text-2xl font-bold text-pink-600">
+          {product.price.toLocaleString()} so‘m
+        </p>
 
-        <h3 className="mb-1 line-clamp-2 text-sm font-medium text-slate-900">
-          IPHONE Air 1TB Cloud White
+        <h3 className="mb-1 line-clamp-2 text-[16px] font-medium text-slate-900">
+          {product.name}
         </h3>
 
         <p className="mb-4 text-xs text-slate-400">
-          Brand: <span className="underline">{product.brand}</span>
+          Brand:{" "}
+          <span className="font-semibold text-blue-600 underline">
+            {product.brand}
+          </span>
         </p>
 
         <div className="flex w-full items-center gap-2">
