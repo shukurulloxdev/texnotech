@@ -1,13 +1,13 @@
 "use server";
 
 import { actionClient } from "@/lib/safe-action";
-import { addProductSchema } from "@/lib/validation";
-import { ProductType } from "@/types";
+import { addProductSchema, idSchema } from "@/lib/validation";
+import { ReturnActionType } from "@/types";
 import { revalidatePath } from "next/cache";
 
 export const createProduct = actionClient
   .schema(addProductSchema)
-  .action<ProductType>(async ({ parsedInput }) => {
+  .action<ReturnActionType>(async ({ parsedInput }) => {
     const response = await fetch(
       // response hardoyim res obyectini qaytaradi malumotni emas malumotni olish uchun
       "http://localhost:8080/api/admin/add-product",
@@ -25,23 +25,53 @@ export const createProduct = actionClient
     if (!response.ok) {
       throw new Error("Server error");
     }
-    revalidatePath("/");
 
     const data = await response.json(); // shunday qilish kerak yani javobni ochib olamiz yani kutib olamiz response obyectidagi javobni js obyectga aylantiramiz
     return data;
   });
 
-export const getTopProducts = actionClient.action<ProductType[]>(async () => {
-  const res = await fetch("http://localhost:8080/api/admin/top-products", {
-    cache: "no-store",
+export const getAdminProducts = actionClient.action<ReturnActionType>(
+  async () => {
+    const res = await fetch("http://localhost:8080/api/admin/admin-products", {
+      cache: "no-store",
+    });
+
+    if (!res.ok) throw new Error("Server error");
+
+    const data = await res.json();
+    return data;
+  },
+);
+
+export const getTopProducts = actionClient.action<ReturnActionType>(
+  async () => {
+    const res = await fetch("http://localhost:8080/api/admin/top-products", {
+      cache: "no-store",
+    });
+
+    if (!res.ok) throw new Error("Server error");
+
+    const data = await res.json(); // ✅ JSONni ochib arrayga aylantiramiz
+
+    return data;
+  },
+);
+
+export const deleteProduct = actionClient
+  .schema(idSchema)
+  .action<ReturnActionType>(async ({ parsedInput }) => {
+    const res = await fetch(
+      `http://localhost:8080/api/admin/delete-product/${parsedInput.id}`,
+      {
+        method: "DELETE",
+      },
+    );
+    revalidatePath("/admin/products");
+    const data = await res.json();
+    return data;
   });
 
-  if (!res.ok) throw new Error("Server error");
-
-  const data = await res.json(); // ✅ JSONni ochib arrayga aylantiramiz
-
-  return data;
-});
+// /delete-product/:id
 
 // {
 //   "_id": "123",

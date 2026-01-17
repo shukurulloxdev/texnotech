@@ -5,10 +5,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, ShoppingBag } from "lucide-react";
 import { Badge } from "../ui/badge";
-import { ProductType } from "@/types";
+import { IProduct } from "@/types";
 
 interface Props {
-  product: ProductType;
+  product: IProduct;
 }
 
 export default function ProductCard({ product }: Props) {

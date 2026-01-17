@@ -1,6 +1,4 @@
-"use client";
 import React from "react";
-import ProductsMenu from "./_components/products-menu";
 import { Button } from "@/components/ui/button";
 import { LayersPlus } from "lucide-react";
 // import { useRouter } from 'next/navigation'
@@ -12,9 +10,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { selectCategories } from "@/components/constants";
+import { getAdminProducts } from "@/actions/admin-actions";
+import AdminProductCard from "./_components/cards/admin-product-card";
 
-function Page() {
-  // const router = useRouter()
+async function Page() {
+  const { data } = await getAdminProducts();
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
@@ -57,7 +57,13 @@ function Page() {
           </Button>
         </div>
       </div>
-      <ProductsMenu />
+      <div className="rounded-3xl bg-white/5 p-6">
+        <div className="flex flex-col gap-4">
+          {data?.products.map((product) => (
+            <AdminProductCard key={product._id} product={product} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

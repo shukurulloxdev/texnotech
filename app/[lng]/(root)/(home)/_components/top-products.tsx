@@ -8,10 +8,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ProductType } from "@/types";
+import { IProduct } from "@/types";
 
 interface Props {
-  topProducts: ProductType[];
+  topProducts: IProduct[];
 }
 
 function PopProducts({ topProducts }: Props) {

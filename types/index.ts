@@ -28,9 +28,11 @@ export interface AdminProductCardTip {
   status: string;
   image: string;
 }
-export interface ProductType {
+
+export interface IProduct {
   _id: string;
   name: string;
+  active: boolean;
   category: string;
   description: string;
   brand: string;
@@ -39,4 +41,12 @@ export interface ProductType {
   percent: number;
   top: boolean;
   images: string[];
+}
+
+export interface ReturnActionType {
+  status: number;
+  failure: string;
+  isNext: boolean;
+  product: IProduct;
+  products: IProduct[];
 }

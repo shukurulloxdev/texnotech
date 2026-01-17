@@ -29,3 +29,7 @@ export const addProductSchema = z
       });
     }
   });
+
+export const idSchema = z.object({
+  id: z.string(),
+});

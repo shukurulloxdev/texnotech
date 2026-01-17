@@ -5,14 +5,16 @@ import PopProducts from "./_components/top-products";
 import Location from "./_components/location";
 import SearchTabel from "./_components/search-tabel";
 import { getTopProducts } from "@/actions/admin-actions";
+// actionClient ham javobni to'gridan to'gri qaytaramaydi o'zini obyectini qaytaradi
 
 async function Page() {
   const { data } = await getTopProducts();
+
   return (
     <div>
       <Hero />
       <Categories />
-      <PopProducts topProducts={data || []} />
+      <PopProducts topProducts={data?.products || []} />
       {/* <DiscountProducts />
       <BigProducts />
       <SmallProducts /> */}
