@@ -14,8 +14,7 @@ function Page() {
             Sayt statistikasi
           </h1>
           <p className="mt-2 text-sm text-slate-400">
-            Saytning real-vaqt nazorati paneli Saytning real-vaqt nazorati
-            paneli
+            Saytning real-vaqt nazorati paneli
           </p>
         </div>
         <div className="grid grid-cols-4 gap-5">
