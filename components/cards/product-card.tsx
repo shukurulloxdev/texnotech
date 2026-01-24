@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, ShoppingBag } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { IProduct } from "@/types";
+import { formatCurrentPrice } from "@/lib/utils";
 
 interface Props {
   product: IProduct;
@@ -18,9 +19,14 @@ export default function ProductCard({ product }: Props) {
       <button className="absolute right-2 top-2 z-10 rounded-full bg-white p-2 shadow hover:bg-rose-50">
         <Heart size={22} className="text-rose-500" />
       </button>
-      <Badge className="absolute left-3 top-3 z-10 bg-blue-600 text-sm shadow hover:bg-blue-700">
-        Top
-      </Badge>
+      <div className="absolute left-3 top-3 z-10 flex flex-col gap-1">
+        <Badge className="bg-blue-600 text-sm shadow hover:bg-blue-700">
+          Top
+        </Badge>
+        <Badge className="bg-red-600 text-sm shadow hover:bg-red-700">
+          -{product.percent}%
+        </Badge>
+      </div>
       <CardContent className="p-5">
         <div className="relative mb-5 aspect-square w-full overflow-hidden rounded-2xl bg-slate-50">
           <Image
@@ -31,8 +37,11 @@ export default function ProductCard({ product }: Props) {
           />
         </div>
 
-        <p className="mb-1 text-2xl font-bold text-pink-600">
+        <p className="mb-1 text-[13px] font-bold text-blue-500 line-through">
           {product.price.toLocaleString()} so‘m
+        </p>
+        <p className="mb-1 text-2xl font-bold text-pink-600">
+          {formatCurrentPrice(product.price, product.percent)} so‘m
         </p>
 
         <h3 className="mb-1 line-clamp-2 text-[16px] font-medium text-slate-900">
@@ -41,7 +50,7 @@ export default function ProductCard({ product }: Props) {
 
         <p className="mb-4 text-xs text-slate-400">
           Brand:{" "}
-          <span className="font-semibold text-blue-600 underline">
+          <span className="font-semibold text-pink-600 underline">
             {product.brand}
           </span>
         </p>

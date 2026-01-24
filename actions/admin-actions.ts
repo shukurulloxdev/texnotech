@@ -1,7 +1,7 @@
 "use server";
 
 import { actionClient } from "@/lib/safe-action";
-import { addProductSchema, idSchema } from "@/lib/validation";
+import { actionSchema, addProductSchema, idSchema } from "@/lib/validation";
 import { ReturnActionType } from "@/types";
 import { revalidatePath } from "next/cache";
 
@@ -69,6 +69,12 @@ export const deleteProduct = actionClient
     revalidatePath("/admin/products");
     const data = await res.json();
     return data;
+  });
+
+export const productAction = actionClient
+  .schema(actionSchema)
+  .action(async ({ parsedInput }) => {
+    const res = await fetch();
   });
 
 // /delete-product/:id

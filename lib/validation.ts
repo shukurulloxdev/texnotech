@@ -33,3 +33,7 @@ export const addProductSchema = z
 export const idSchema = z.object({
   id: z.string(),
 });
+
+export const actionSchema = z.object({
+  active: z.boolean(),
+});
