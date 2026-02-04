@@ -1,7 +1,10 @@
 import React from 'react'
 
 function Page() {
-	return <div>page</div>
+	return <div>
+lorem
+
+	</div>
 }
 
 export default Page
