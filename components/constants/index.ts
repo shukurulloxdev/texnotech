@@ -5,3 +5,8 @@ export const navLinks = [
 	{ route: 'contactus', name: 'navLink4' },
 	{ route: 'reviews', name: 'navLink5' },
 ]
+
+export const lngs = [
+	{ route: 'uz', label: "O'zbekcha" },
+	{ route: 'ru', label: 'Русский' },
+]

@@ -1,5 +1,6 @@
 'use client'
 import { navLinks } from '@/components/constants'
+import LngMenu from '@/components/shared/lng-menu'
 import Logo from '@/components/shared/logo'
 import { Input } from '@/components/ui/input'
 import { useTranslation } from '@/i18n/client'
@@ -14,11 +15,10 @@ function Navbar() {
 	const { t } = useTranslation(lng as string, 'home')
 	const pathname = usePathname()
 	return (
-		<div className='sticky inset-0 bg-slate-100 shadow-2xl'>
-			<div className='sticky top-0 z-40 border-b border-black/5 bg-white/80 backdrop-blur-md'>
+		<div className='sticky inset-0 bg-slate-50 shadow-2xl'>
+			<div className='sticky top-0 z-40 border-b bg-slate-100  backdrop-blur-md'>
 				<div className='mx-auto max-w-7xl '>
 					<div className='flex h-10 items-center justify-between text-[15px] text-gray-600'>
-						{/* LEFT – NAV LINKS */}
 						<nav className='flex items-center gap-6 font-medium'>
 							{navLinks.map(item => (
 								<Link
@@ -48,9 +48,7 @@ function Navbar() {
 								Malumot qoldirish
 							</span>
 
-							<span className='cursor-pointer uppercase tracking-wide transition hover:text-black'>
-								O‘zbek
-							</span>
+							<LngMenu />
 						</div>
 					</div>
 				</div>
