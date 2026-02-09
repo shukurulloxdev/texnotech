@@ -16,7 +16,7 @@ function Hero() {
 					<CarouselItem>
 						<div className='relative h-[450px] w-full '>
 							<Image
-								src={'/heroimages/image3.jpg'}
+								src={'/heroimages/img3.jpg'}
 								alt='Texnotech'
 								fill
 								className='rounded-2xl object-cover'
@@ -26,7 +26,7 @@ function Hero() {
 					<CarouselItem>
 						<div className='relative h-[450px] w-full '>
 							<Image
-								src={'/heroimages/img2.jpg'}
+								src={'/heroimages/img5.jpg'}
 								alt='Texnotech'
 								fill
 								className='rounded-2xl object-cover'
