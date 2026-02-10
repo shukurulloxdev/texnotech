@@ -5,7 +5,13 @@ import Logo from '@/components/shared/logo'
 import { Input } from '@/components/ui/input'
 import { useTranslation } from '@/i18n/client'
 import { cn } from '@/lib/utils'
-import { GalleryVerticalEnd, Heart, ShoppingCart, User } from 'lucide-react'
+import {
+	GalleryVerticalEnd,
+	Heart,
+	ShoppingCart,
+	User,
+	Search,
+} from 'lucide-react'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import React from 'react'
@@ -60,10 +66,32 @@ function Navbar() {
 					<Logo />
 				</div>
 
-				<Input
-					placeholder='Istalgan narsangizni qidiring...'
-					className='h-10 w-full rounded-2xl border border-gray-200 bg-white/90 px-5 shadow-sm transition placeholder:text-gray-400 focus:border-transparent focus:ring-2 focus:ring-orange-400'
-				/>
+				<div className='relative w-full max-w-xl'>
+					<Input
+						placeholder='Istalgan narsangizni qidiring...'
+						className='
+			h-10 w-full rounded-2xl border border-gray-200 bg-white/95
+			pl-4 pr-14 text-sm
+			shadow-sm transition
+			placeholder:text-gray-400
+			focus:border-transparent focus:ring-2 focus:ring-orange-400
+		'
+					/>
+
+					<button
+						type='button'
+						className='
+			absolute right-1 top-1/2 flex
+			h-9 w-12 -translate-y-1/2 items-center justify-center
+			rounded-xl bg-blue-500 text-white
+			shadow-md transition
+			hover:scale-105 hover:bg-blue-600
+			active:scale-95
+		'
+					>
+						<Search className='size-[18px]' />
+					</button>
+				</div>
 				<div className='flex items-center gap-4'>
 					<div className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'>
 						<GalleryVerticalEnd

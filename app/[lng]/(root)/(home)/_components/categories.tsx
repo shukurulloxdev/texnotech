@@ -13,7 +13,7 @@ import Autoplay from 'embla-carousel-autoplay'
 function Categories() {
 	return (
 		<section className='mx-auto max-w-7xl py-8'>
-			<div className=' flex items-end justify-between'>
+			<div className='flex items-end justify-between'>
 				<h1 className='font-sora text-3xl font-semibold tracking-tight text-slate-900'>
 					Mahsulot toifalari
 				</h1>
