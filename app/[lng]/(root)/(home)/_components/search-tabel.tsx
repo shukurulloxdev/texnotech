@@ -11,8 +11,8 @@ function SearchTabel() {
 		'Apple iPhone smartfonlari',
 	]
 	return (
-		<div className='bg-white py-10 mt-6'>
-			<div className='max-w-7xl mx-auto'>
+		<div className='mt-6 bg-white py-10'>
+			<div className='mx-auto max-w-7xl'>
 				<div className='mx-auto mb-10  text-center'>
 					<span className=' inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1 text-xs font-medium tracking-wide text-pink-500'>
 						Real savollarga javoblar
@@ -46,12 +46,12 @@ to-blue-50 p-6 shadow-xl'
 						</ul>
 					</div>
 					<div
-						className='bg-gradient-to-b
-from-white
-via-pink-50
-to-blue-50
+						className='w-full
+rounded-2xl
+border
+bg-gradient-to-b
 
- w-full rounded-2xl border p-6 shadow-xl'
+ from-white via-pink-50 to-blue-50 p-6 shadow-xl'
 					>
 						<h2 className='mb-4 text-xl font-semibold text-gray-800'>
 							Odamlar ko‘pincha qidirishadi
@@ -69,12 +69,12 @@ to-blue-50
 						</ul>
 					</div>
 					<div
-						className='bg-gradient-to-b
-from-white
-via-pink-50
-to-blue-50
+						className='w-full
+rounded-2xl
+border
+bg-gradient-to-b
 
- w-full rounded-2xl border p-6 shadow-xl'
+ from-white via-pink-50 to-blue-50 p-6 shadow-xl'
 					>
 						<h2 className='mb-4 text-xl font-semibold text-gray-800'>
 							Odamlar ko‘pincha qidirishadi

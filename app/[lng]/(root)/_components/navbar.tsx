@@ -122,12 +122,15 @@ function Navbar() {
 						</span>
 					</div>
 
-					<div className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'>
+					<Link
+						href={'/admin'}
+						className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'
+					>
 						<User
 							className='size-6 text-green-500 transition group-hover:scale-110'
 							size={24}
 						/>
-					</div>
+					</Link>
 				</div>
 			</div>
 		</div>
