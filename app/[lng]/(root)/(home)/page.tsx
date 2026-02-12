@@ -6,7 +6,7 @@ import DiscountProducts from './_components/discount-products'
 import BigProducts from './_components/big-products'
 import SmallProducts from './_components/small-products'
 import Location from './_components/location'
-import Questions from './_components/faq'
+import SearchTabel from './_components/search-tabel'
 
 function Page() {
 	return (
@@ -18,7 +18,7 @@ function Page() {
 			<BigProducts />
 			<SmallProducts />
 			<Location />
-			<Questions />
+			<SearchTabel />
 		</div>
 	)
 }
