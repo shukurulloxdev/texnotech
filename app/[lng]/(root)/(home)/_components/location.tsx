@@ -7,7 +7,7 @@ function Location() {
 		<div className='mx-auto max-w-7xl py-6'>
 			<Tabs
 				defaultValue='1xona'
-				className='rounded-2xl bg-gradient-to-br from-white via-rose-50 to-pink-100 p-6  shadow-xl'
+				className='rounded-2xl bg-gradient-to-br from-white via-rose-50 to-pink-50 p-6  shadow-xl'
 			>
 				<div className='mb-4 flex items-center justify-between gap-10'>
 					<div className='flex flex-col gap-1'>

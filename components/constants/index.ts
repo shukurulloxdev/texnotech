@@ -69,3 +69,36 @@ export const categories = [
 		url: '/categories/mikropech.webp',
 	},
 ]
+
+export const faqs = [
+	{
+		id: 1,
+		question: 'Bu kompaniyaga qanday ishonsa bo‘ladi?',
+		answer:
+			'Arkan Development 7 yildan ortiq tajribaga ega bo‘lgan professional qurilish kompaniyasi hisoblanadi. Har bir loyiha xalqaro standartlarga asoslanib amalga oshiriladi va barcha jarayonlar shaffof tarzda olib boriladi.',
+	},
+	{
+		id: 2,
+		question: 'Loyihalar qachon va qanday topshiriladi?',
+		answer:
+			'Har bir loyiha aniq belgilangan muddat asosida rejalashtiriladi. Qurilish bosqichlari qat’iy nazorat qilinadi va obyektlar belgilangan vaqt oralig‘ida sifatli holatda topshiriladi.',
+	},
+	{
+		id: 3,
+		question: 'Qurilish jarayonida qo‘shimcha xarajatlar bo‘ladimi?',
+		answer:
+			'Yo‘q. Barcha xarajatlar shartnoma tuzishdan oldin aniq hisoblab chiqiladi. Mijozlarga yashirin yoki kutilmagan to‘lovlar qo‘llanilmaydi.',
+	},
+	{
+		id: 4,
+		question: 'Qurilish jarayonini qanday kuzatib borish mumkin?',
+		answer:
+			'Mijozlar qurilish jarayonining har bir bosqichi haqida muntazam ravishda ma’lumot olib boradilar. Foto va video hisobotlar, shuningdek, shaxsiy aloqa orqali nazorat imkoniyati mavjud.',
+	},
+	{
+		id: 5,
+		question: 'Maslahat va loyiha baholash bepulmi?',
+		answer:
+			'Ha, kompaniyamiz barcha mijozlar uchun bepul maslahat va loyiha bo‘yicha dastlabki baholash xizmatlarini taqdim etadi.',
+	},
+]

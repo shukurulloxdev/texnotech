@@ -4,7 +4,7 @@ import { Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react'
 export default function Footer() {
 	return (
 		<footer
-			className='relative mt-7 border-t border-white/10 
+			className='relative border-t border-white/10 
 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 text-white'
 		>
 			<div className='mx-auto max-w-7xl px-6 py-16'>
