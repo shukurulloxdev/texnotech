@@ -9,6 +9,7 @@ import {
 	Handbag,
 	LayersPlus,
 	UserStar,
+	ListChecks,
 } from 'lucide-react'
 import Logo from '@/components/shared/logo'
 import { cn } from '@/lib/utils'
@@ -16,12 +17,22 @@ import { Button } from '@/components/ui/button'
 
 const navItems = [
 	{ title: 'Statistika', href: '/admin', icon: LayoutDashboard },
-	{ title: 'Buyurtmalar', href: '/admin/orders', icon: Handbag },
 	{ title: 'Texnikalar', href: '/admin/products', icon: Folders },
 	{
-		title: 'Texnikalar kiritish',
+		title: 'Texnika kiritish',
 		href: '/admin/add-product',
 		icon: LayersPlus,
+	},
+	{ title: 'Buyurtmalar', href: '/admin/orders', icon: Handbag },
+	{
+		title: 'Tugatilgan buyurtmalar',
+		href: '/admin/end-orders',
+		icon: ListChecks,
+	},
+	{
+		title: 'Adminlar nazorati',
+		href: '/admin/add-product',
+		icon: UserStar,
 	},
 ]
 

@@ -7,8 +7,8 @@ function Layout({ children }: ChildProps) {
 			<div className='grid h-full grid-cols-[300px_1fr]'>
 				<Sidebar />
 
-				<main className='relative overflow-y-auto bg-[#0f0f14]'>
-					<div className='absolute size-full bg-pink-600/50 blur-[200px]' />
+				<main className='relative overflow-y-auto bg-gradient-to-b from-[#091334] via-[#0A1F44] to-[#091334]'>
+					<div className='absolute size-full bg-blue-600/40 blur-[400px]' />
 					<div className='min-h-full p-8'>{children}</div>
 				</main>
 			</div>

@@ -1,3 +1,4 @@
+import { TrendingUp, ShoppingCart, MessageCircle, Wallet } from 'lucide-react'
 export const navLinks = [
 	{ route: '', name: 'navLink1' },
 	{ route: 'projects', name: 'navLink2' },
@@ -100,5 +101,59 @@ export const faqs = [
 		question: 'Maslahat va loyiha baholash bepulmi?',
 		answer:
 			'Ha, kompaniyamiz barcha mijozlar uchun bepul maslahat va loyiha bo‘yicha dastlabki baholash xizmatlarini taqdim etadi.',
+	},
+]
+
+export const statistics = [
+	{
+		title: 'Jami texnika',
+		value: '100',
+		suffix: 'ta',
+		icon: TrendingUp,
+	},
+	{
+		title: 'Jami sotuv',
+		value: '19',
+		suffix: 'ta',
+		icon: ShoppingCart,
+	},
+	{
+		title: 'Jami izoh',
+		value: '10',
+		suffix: 'ta',
+		icon: MessageCircle,
+		glow: 'from-indigo-500 to-purple-500',
+	},
+	{
+		title: 'Jami summa',
+		value: '27,731,000',
+		suffix: "so'm",
+		icon: Wallet,
+	},
+]
+export const bestSeller = [
+	{
+		brend: 'Samsung',
+		category: 'Chang yutgich',
+		price: 899000,
+		soldout: '16',
+		title: 'Samsung SC 5251 RED',
+		image: '/categories/changyutgich.jpg',
+	},
+	{
+		brend: 'Ferre',
+		category: 'Pech',
+		price: 999000,
+		soldout: '14',
+		title: 'Mini pech Ferre MO 3700 B',
+		image: '/categories/mikropech.webp',
+	},
+	{
+		brend: 'Artel',
+		category: 'Kir yuvish mashinasi',
+		price: 2999000,
+		soldout: '12',
+		title: 'Avtomat kir yuvish mashinasi Artel 9kg ',
+		image: '/categories/kirmashina.png',
 	},
 ]
