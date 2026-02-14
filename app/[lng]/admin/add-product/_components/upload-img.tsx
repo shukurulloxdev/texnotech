@@ -9,7 +9,8 @@ function UploadImg() {
 			appearance={{
 				container: {
 					border: '1px dotted blue',
-					borderRadius: '1rem',
+					borderRadius: '10px',
+					backgroundColor: 'rgba(255,255,255,0.05)',
 					padding: '1rem',
 				},
 				button: {
@@ -22,7 +23,7 @@ function UploadImg() {
 					overflow: 'hidden', // nuqtani yashirish uchun
 				},
 				uploadIcon: {
-					color: 'blue',
+					color: 'pink',
 					fontSize: '50px',
 					width: '50px',
 					height: '50px',

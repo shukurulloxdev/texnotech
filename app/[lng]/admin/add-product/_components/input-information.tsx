@@ -348,7 +348,7 @@ function InputInformation() {
 							</div>
 						</div>
 					</div>
-					<div className='rounded-2xl border border-white/20 bg-white/5 p-6'>
+					<div className='space-y-4 rounded-2xl border border-white/20 bg-white/5 p-6'>
 						<div className='flex items-center justify-between'>
 							<h1 className='flex items-center gap-2 font-inter text-lg font-bold text-white'>
 								<span>Rasim yuklash</span>

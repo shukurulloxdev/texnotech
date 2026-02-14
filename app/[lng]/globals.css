@@ -104,18 +104,3 @@
 		@apply bg-background text-foreground;
 	}
 }
-
-/* Loading text va progress text oq bo‘lsin */
-.uploadthing-container span {
-	color: white !important;
-}
-
-/* Progress bar background */
-.uploadthing-container progress {
-	accent-color: blue; /* progress rangini o‘zgartirish */
-}
-
-/* Button text oq bo‘lsin */
-.uploadthing-container button {
-	color: white !important;
-}
