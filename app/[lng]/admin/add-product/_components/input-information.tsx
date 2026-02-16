@@ -19,6 +19,7 @@ import { formatPrice } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useState } from 'react'
 import { ImagePlus } from 'lucide-react'
+import UploadImg from './upload-img'
 
 function InputInformation() {
 	const [isDiscount, setIsDiscount] = useState<boolean>(false)
@@ -354,6 +355,7 @@ function InputInformation() {
 								<ImagePlus size={20} />
 							</h1>
 						</div>
+						<UploadImg />
 					</div>
 				</div>
 			</form>
