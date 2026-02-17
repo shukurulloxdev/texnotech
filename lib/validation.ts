@@ -25,7 +25,7 @@ export const addProductSchema = z
 			ctx.addIssue({
 				code: 'custom',
 				path: ['percent'],
-				message: 'Discount tanlansa, percent majburiy',
+				message: 'Chegirma bosilganda, foiz majburiy',
 			})
 		}
 	})

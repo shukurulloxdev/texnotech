@@ -69,7 +69,7 @@ function InputInformation() {
 						</Button>
 					</div>
 				</div>
-				<div className='grid grid-cols-3 gap-4'>
+				<div className='grid grid-cols-3 items-start gap-4'>
 					<div className=' col-span-2 rounded-2xl border border-white/20 bg-white/5 p-6'>
 						<div className='grid grid-cols-2 gap-4'>
 							<div className='rounded-2xl bg-white/5 p-4'>
@@ -86,6 +86,7 @@ function InputInformation() {
 													className='
     border-white/20
     bg-white/10
+    text-white
     transition-all
     duration-200
     placeholder:text-gray-200
@@ -345,7 +346,7 @@ function InputInformation() {
 							</div>
 						</div>
 					</div>
-					<div className='rounded-2xl border border-white/30 bg-white/10 p-6'>
+					<div className='rounded-2xl border border-white/20 bg-white/5 p-6'>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
 						veniam explicabo tenetur. Distinctio doloribus id doloremque
 						voluptates quidem, inventore quia eveniet cupiditate, totam animi
