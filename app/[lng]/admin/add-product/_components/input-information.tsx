@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/button'
 import { formatPrice } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useState } from 'react'
+import { ImagePlus } from 'lucide-react'
 
 function InputInformation() {
 	const [isDiscount, setIsDiscount] = useState<boolean>(false)
@@ -347,10 +348,10 @@ function InputInformation() {
 						</div>
 					</div>
 					<div className='rounded-2xl border border-white/20 bg-white/5 p-6'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-						veniam explicabo tenetur. Distinctio doloribus id doloremque
-						voluptates quidem, inventore quia eveniet cupiditate, totam animi
-						pariatur sequi provident deleniti necessitatibus consequatur.
+						<h1 className='flex items-center gap-2 font-inter text-lg font-bold text-white'>
+							<span>Rasim yuklash</span>
+							<ImagePlus size={20} />
+						</h1>
 					</div>
 				</div>
 			</form>
