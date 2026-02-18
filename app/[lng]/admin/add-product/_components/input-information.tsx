@@ -222,19 +222,71 @@ function InputInformation() {
 									)}
 								/>
 							</div>
-							<div className='col-span-2 rounded-2xl bg-white/5 p-4'>
+							<div className='col-span-2 grid grid-cols-2 gap-4 rounded-2xl bg-white/5 p-4'>
 								<FormField
 									control={form.control}
 									name='top'
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel className='font-inter text-lg font-bold text-white '>
-												top
-											</FormLabel>
+											<div className='flex items-center gap-2'>
+												<FormControl>
+													<Checkbox
+														onCheckedChange={field.onChange}
+														className='
+    size-6
+    !rounded-sm
+    border-2
+    border-blue-500
+    transition-all
+    duration-200
+    focus-visible:ring-2
+		 focus-visible:ring-blue-500
+    focus-visible:ring-offset-0
+    data-[state=checked]:border-blue-600
+    data-[state=checked]:bg-blue-600
+    data-[state=checked]:text-white
+  '
+													/>
+												</FormControl>
+												<FormLabel className='font-inter text-lg font-bold text-white'>
+													Texnika top ga kiritilsinmi ?
+												</FormLabel>
+											</div>
 
-											<FormControl>
-												<Checkbox onCheckedChange={field.onChange} />
-											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
+									name='discount'
+									render={({ field }) => (
+										<FormItem>
+											<div className='flex items-center gap-2'>
+												<FormControl>
+													<Checkbox
+														onCheckedChange={field.onChange}
+														className='
+    size-6
+    !rounded-sm
+    border-2
+    border-blue-500
+    transition-all
+    duration-200
+    focus-visible:ring-2
+		 focus-visible:ring-blue-500
+    focus-visible:ring-offset-0
+    data-[state=checked]:border-blue-600
+    data-[state=checked]:bg-blue-600
+    data-[state=checked]:text-white
+  '
+													/>
+												</FormControl>
+												<FormLabel className='font-inter text-lg font-bold text-white'>
+													Texnikaga chegirma berilsinmi ?
+												</FormLabel>
+											</div>
+
 											<FormMessage />
 										</FormItem>
 									)}
@@ -243,7 +295,10 @@ function InputInformation() {
 						</div>
 					</div>
 					<div className='rounded-2xl border border-white/30 bg-white/10 p-6'>
-						s
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+						veniam explicabo tenetur. Distinctio doloribus id doloremque
+						voluptates quidem, inventore quia eveniet cupiditate, totam animi
+						pariatur sequi provident deleniti necessitatibus consequatur.
 					</div>
 				</div>
 			</form>
