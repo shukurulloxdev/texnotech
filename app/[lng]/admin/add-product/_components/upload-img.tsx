@@ -5,15 +5,15 @@ function UploadImg() {
 	return (
 		<div>
 			<UploadDropzone
-				className='h-[210px] w-full cursor-pointer'
+				className='h-[210px] w-full cursor-pointer text-white'
 				config={{ appendOnPaste: true, mode: 'auto' }}
 				appearance={{
 					container: {
-						border: '1px dotted blue',
+						border: '1px dotted pink',
 					},
 					uploadIcon: {
-						color: 'blue',
-						fontSize: '50px', // 👈 ikonkani kattalashtirish
+						color: 'white',
+						fontSize: '60px', // 👈 ikonkani kattalashtirish
 						width: '50px', // optional
 						height: '50px', // optional
 					},
@@ -32,4 +32,3 @@ function UploadImg() {
 }
 
 export default UploadImg
-// 1
