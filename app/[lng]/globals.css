@@ -104,3 +104,10 @@
 		@apply bg-background text-foreground;
 	}
 }
+.uploadthing-container span {
+	color: white;
+}
+/* “Choose a file” button text’ini o‘zgartirish */
+.uploadthing-container button {
+	color: white;
+}
