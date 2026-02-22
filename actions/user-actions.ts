@@ -22,7 +22,7 @@ export const getProductById = actionClient
   .schema(idSchema)
   .action<ReturnActionType>(async ({ parsedInput }) => {
     const res = await fetch(
-      `http://localhost:8080/api/user/product/${parsedInput}`,
+      `http://localhost:8080/api/user/product/${parsedInput.id}`,
     );
 
     const data = await res.json();
