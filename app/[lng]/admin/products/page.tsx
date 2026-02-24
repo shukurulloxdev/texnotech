@@ -49,7 +49,7 @@ async function Page() {
           </Select>
 
           <Button
-            className="flex items-center bg-blue-600 hover:bg-blue-700"
+            className="h flex items-center bg-blue-600 text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-blue-700 active:scale-95"
             // onClick={() => router.push(`/uz/admin/add-product`)}
           >
             <LayersPlus />

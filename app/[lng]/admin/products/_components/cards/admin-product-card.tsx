@@ -1,18 +1,25 @@
 "use client";
 
-import { deleteProduct } from "@/actions/admin-actions";
+import { deleteProduct, productAction } from "@/actions/admin-actions";
 import { Button } from "@/components/ui/button";
-import { formatCurrentPrice } from "@/lib/utils";
+import { cn, formatCurrentPrice } from "@/lib/utils";
 import { IProduct } from "@/types";
+import { Loader } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
 
 interface Props {
   product: IProduct;
 }
+
 function AdminProductCard({ product }: Props) {
+  // const [isLoading, setIsLoading] = useState(false);
+
   function removeProduct() {
+    const isConfirm = confirm("Mahsulotni o'chirmoqchimisiz?");
+
+    if (!isConfirm) return;
     const res = deleteProduct({ id: product._id });
 
     toast.promise(res, {
@@ -20,6 +27,20 @@ function AdminProductCard({ product }: Props) {
       error: "Nimadur xato ❌, Boshidan uruning!",
       loading: "Iltimos kuting 👀",
     });
+  }
+
+  function productActions() {
+    // setIsLoading(true);
+
+    const res = productAction({ id: product._id });
+
+    toast.promise(res, {
+      success: `Mahsulot ${!product.active ? "aktiv" : "noaktiv"}  qilindi ✅`,
+      error: "Nimadur xato ❌, Boshidan uruning!",
+      loading: `Iltimos kuting 👀`,
+    });
+
+    // res.finally(() => setIsLoading(false));
   }
   return (
     <div className="grid grid-cols-[1.5fr_1fr_auto] items-center rounded-xl bg-white/10 p-4">
@@ -52,24 +73,37 @@ function AdminProductCard({ product }: Props) {
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
+        {/* Sozlash */}
         <Button
-          className="cursor-pointer bg-white/20 text-white"
+          // eslint-disable-next-line tailwindcss/enforces-negative-arbitrary-values
+          className="rounded-lg border border-white/20 bg-white/10 px-4 text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-[2px] hover:border-white/40 hover:bg-white/20 hover:shadow-lg"
           variant={"outline"}
         >
           Sozlash
         </Button>
+
+        {/* Active / Inactive */}
         <Button
-          className="cursor-pointer bg-red-600 text-white hover:bg-red-500 hover:text-white"
+          className={cn(
+            "rounded-lg px-4 text-white transition-all duration-300 hover:-translate-y-[2px] hover:shadow-lg active:scale-95",
+            product.active
+              ? "border border-green-400/40 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-500 hover:to-emerald-400"
+              : "border border-red-400/40 bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-500 hover:to-rose-400",
+          )}
           variant={"outline"}
+          onClick={productActions}
         >
-          Draf
+          {product.active ? "Faol" : "Faol emas"}{" "}
+          {/* {isLoading ? <Loader className="animate-spin" /> : null} */}
         </Button>
 
+        {/* Delete */}
         <Button
-          className="cursor-pointer bg-red-600 text-white hover:bg-red-700 hover:text-white"
+          // eslint-disable-next-line tailwindcss/enforces-negative-arbitrary-values
+          className="rounded-lg border border-red-400/40 bg-gradient-to-r from-red-600 to-red-500 px-4 text-white transition-all duration-300 hover:-translate-y-[2px] hover:from-red-500 hover:to-red-400 hover:shadow-xl"
           variant={"outline"}
-          onClick={() => removeProduct()}
+          onClick={removeProduct}
         >
           O&apos;chirish
         </Button>

@@ -4,7 +4,7 @@ import Categories from "./_components/categories";
 import PopProducts from "./_components/top-products";
 import Location from "./_components/location";
 import SearchTabel from "./_components/search-tabel";
-import { getTopProducts } from "@/actions/admin-actions";
+import { getTopProducts } from "@/actions/user-actions";
 // actionClient ham javobni to'gridan to'gri qaytaramaydi o'zini obyectini qaytaradi
 
 async function Page() {

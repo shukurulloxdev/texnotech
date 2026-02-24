@@ -1,7 +1,7 @@
 "use server";
 
 import { actionClient } from "@/lib/safe-action";
-import { actionSchema, addProductSchema, idSchema } from "@/lib/validation";
+import { addProductSchema, idSchema } from "@/lib/validation";
 import { ReturnActionType } from "@/types";
 import { revalidatePath } from "next/cache";
 
@@ -43,20 +43,6 @@ export const getAdminProducts = actionClient.action<ReturnActionType>(
   },
 );
 
-export const getTopProducts = actionClient.action<ReturnActionType>(
-  async () => {
-    const res = await fetch("http://localhost:8080/api/admin/top-products", {
-      cache: "no-store",
-    });
-
-    if (!res.ok) throw new Error("Server error");
-
-    const data = await res.json(); // ✅ JSONni ochib arrayga aylantiramiz
-
-    return data;
-  },
-);
-
 export const deleteProduct = actionClient
   .schema(idSchema)
   .action<ReturnActionType>(async ({ parsedInput }) => {
@@ -66,15 +52,29 @@ export const deleteProduct = actionClient
         method: "DELETE",
       },
     );
+
+    if (!res.ok) throw new Error("Server error");
     revalidatePath("/admin/products");
+
     const data = await res.json();
     return data;
   });
 
 export const productAction = actionClient
-  .schema(actionSchema)
-  .action(async ({ parsedInput }) => {
-    const res = await fetch();
+  .schema(idSchema)
+  .action<ReturnActionType>(async ({ parsedInput }) => {
+    const res = await fetch(
+      `http://localhost:8080/api/admin/update-active/${parsedInput.id}`,
+      {
+        method: "PUT",
+      },
+    );
+
+    if (!res.ok) throw new Error("Server error");
+    revalidatePath("/admin/products");
+
+    const date = await res.json();
+    return date;
   });
 
 // /delete-product/:id
