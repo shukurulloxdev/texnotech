@@ -6,8 +6,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { Sora, Poppins, Inter, Manrope } from "next/font/google";
 import { CookieProvider } from "@/components/providers/cooke-provider";
 import NextTopLoader from "nextjs-toploader";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
 
 const sora = Sora({
   subsets: ["latin"],
