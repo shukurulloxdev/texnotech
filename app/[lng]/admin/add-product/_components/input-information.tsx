@@ -51,8 +51,12 @@ function InputInformation() {
       return toast.error("Iltimos mahsulot rasmini yuklang!");
     }
 
-    const res = await createProduct({ ...values, images });
-    console.log(res);
+    const res = createProduct({ ...values, images });
+    toast.promise(res, {
+      success: "Muvaffaqiyatli qo'shildi ✅",
+      error: "Hato yuz berdi ❌, Boshidan yuboring",
+      loading: "Iltimos kuting, Yuklanmoqda... 👀",
+    });
 
     form.reset(defaultValues);
     dispatch(removeAllImages());
