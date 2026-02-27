@@ -23,6 +23,7 @@ import UploadImg from "./upload-img";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { toast } from "sonner";
+import { createProduct } from "@/actions/admin-actions";
 
 function InputInformation() {
   const dispatch = useDispatch();
@@ -40,16 +41,19 @@ function InputInformation() {
   };
   const form = useForm<z.infer<typeof addProductSchema>>({
     resolver: zodResolver(addProductSchema),
-    defaultValues: defaultValues,
+    defaultValues,
   });
 
   const isDiscount = form.watch("discount");
 
-  function onSubmit(values: z.infer<typeof addProductSchema>) {
+  async function onSubmit(values: z.infer<typeof addProductSchema>) {
     if (images.length === 0) {
       return toast.error("Iltimos mahsulot rasmini yuklang!");
     }
-    console.log({ ...values, images });
+
+    const res = await createProduct({ ...values, images });
+    console.log(res);
+
     form.reset(defaultValues);
     dispatch(removeAllImages());
   }

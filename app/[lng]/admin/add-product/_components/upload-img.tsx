@@ -11,7 +11,7 @@ import { X } from "lucide-react";
 function UploadImg() {
   const dispatch = useDispatch();
   const images = useSelector((state: RootState) => state.pictures.images);
-  console.log(images);
+
   return (
     <div className="flex select-none flex-col gap-2">
       {images.length === 3 ? null : (
