@@ -52,6 +52,8 @@ function InputInformation() {
     }
 
     const res = createProduct({ ...values, images });
+    const newData = await res;
+    console.log(newData.data);
     toast.promise(res, {
       success: "Muvaffaqiyatli qo'shildi ✅",
       error: "Hato yuz berdi ❌, Boshidan yuboring",

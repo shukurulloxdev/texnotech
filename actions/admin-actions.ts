@@ -8,6 +8,7 @@ export const createProduct = actionClient
   .schema(addProductSchema)
   .action<ProductType>(async ({ parsedInput }) => {
     const response = await fetch(
+      // response hardoyim res obyectini qaytaradi malumotni emas malumotni olish uchun
       "http://localhost:8080/api/admin/add-product",
       {
         method: "POST",
@@ -23,7 +24,15 @@ export const createProduct = actionClient
     if (!response.ok) {
       throw new Error("Server error");
     }
-
-    const data = await response.json();
+    const data = await response.json(); // shunday qilish kerak yani javobni ochib olamiz yani kutib olamiz response obyectidagi javobni js obyectga aylantiramiz
     return data;
   });
+
+export const getTopProducts = actionClient.action<ProductType[]>(async () => {
+  const res = await fetch("http://localhost:8080/api/admin/top-products");
+
+  if (!res.ok) throw new Error("Server error");
+
+  const data = await res.json(); // ✅ JSONni ochib arrayga aylantiramiz
+  return data;
+});
