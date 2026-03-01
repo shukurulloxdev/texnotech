@@ -89,7 +89,7 @@ import { categories } from "@/components/constants";
 
 function Categories() {
   return (
-    <section className="mx-auto mt-4 max-w-7xl pb-10">
+    <section className="mx-auto mt-4 max-w-7xl pb-6">
       <div className="mb-4 flex items-end justify-between">
         <h1 className="font-sora text-3xl font-semibold tracking-tight text-gray-800">
           Barcha toifalar
@@ -117,7 +117,7 @@ function Categories() {
         ]}
         className="w-full"
       >
-        <CarouselContent className="-ml-4 py-4">
+        <CarouselContent className="-ml-4 px-1 py-4">
           {categories.map((item, index) => (
             <CarouselItem
               key={item.route}
@@ -136,7 +136,7 @@ function Categories() {
 
                   <div className="absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <div className="translate-y-4 scale-50 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-xl">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-pink-600 shadow-xl">
                         <ArrowUpRight size={20} />
                       </div>
                     </div>
@@ -150,7 +150,7 @@ function Categories() {
                   <div className="mx-auto mt-2 h-1 w-0 rounded-full bg-black transition-all duration-500 group-hover:w-full" />
                 </div>
 
-                <span className="absolute -right-2 -top-4 select-none text-[60px] font-black text-neutral-500/5 transition-opacity group-hover:opacity-10">
+                <span className="absolute -right-2 -top-4 select-none text-[60px] font-black text-pink-500/15 transition-opacity group-hover:opacity-10">
                   0{index + 1}
                 </span>
               </div>
