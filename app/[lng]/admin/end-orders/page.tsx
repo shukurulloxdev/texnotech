@@ -13,7 +13,11 @@ function Page() {
           </h1>
           <p className="mt-2 text-sm text-slate-400">
             Bu yerda siz mijozlardan kelgan yangi buyurtmalarni qabul
-            qilishingiz mumkunn
+            qilishingiz mumku
+          </p>
+          <p className="mt-2 text-sm text-slate-400">
+            Bu yerda siz mijozlardan kelgan yangi buyurtmalarni qabul
+            qilishingiz mumku
           </p>
         </div>
         <Link href={"/admin/orders"}>
