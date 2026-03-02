@@ -4,10 +4,10 @@ import { Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react'
 export default function Footer() {
 	return (
 		<footer
-			className='relative border-t border-white/10 
+			className='border-t border-white/10 
 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 text-white'
 		>
-			<div className='mx-auto max-w-7xl px-6 py-16'>
+			<div className='mx-auto max-w-7xl py-16'>
 				<div className='grid gap-12 md:grid-cols-2 lg:grid-cols-5'>
 					{/* Brand */}
 					<div className='space-y-4'>

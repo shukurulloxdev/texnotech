@@ -16,14 +16,13 @@ import { selectCategories } from '@/components/constants'
 function Page() {
 	const router = useRouter()
 	return (
-		<div className=''>
 			<div className='space-y-8'>
 				<div className='flex items-center justify-between'>
 					<div>
 						<h1 className='text-4xl font-bold tracking-tight text-white'>
 							Barcha texnikalar
 						</h1>
-						<p className='mt-2 text-sm text-slate-400'>
+						<p className='mt-1 text-sm text-slate-400'>
 							Saytdagi barcha aktiv texnikalar jadvali
 						</p>
 					</div>
@@ -52,7 +51,7 @@ function Page() {
 										className='cursor-pointer 
 				focus:bg-blue-600/30 
 				focus:text-white
-				data-[state=checked]:bg-blue-600
+				data-[state=checked]:bg-blue-600 
 				data-[state=checked]:text-white'
 									>
 										{category.name}
@@ -72,7 +71,6 @@ function Page() {
 				</div>
 				<ProductsMenu />
 			</div>
-		</div>
 	)
 }
 

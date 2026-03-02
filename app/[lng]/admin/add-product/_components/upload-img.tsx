@@ -1,5 +1,4 @@
 import { UploadDropzone } from '@/lib/uploadthing'
-import React from 'react'
 
 function UploadImg() {
 	return (
@@ -31,7 +30,7 @@ function UploadImg() {
 			}}
 			endpoint='imageUploader'
 			onClientUploadComplete={res => {
-				console.log('Uploaded:', res)
+				console.log('Uploa ded:', res)
 			}}
 			onUploadError={error => {
 				console.error('Upload error:', error)

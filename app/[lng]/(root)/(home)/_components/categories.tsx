@@ -43,7 +43,7 @@ function Categories() {
 					}),
 				]}
 			>
-				<CarouselContent className='py-6'>
+				<CarouselContent className='py-4'>
 					{categories.map(item => (
 						<CarouselItem className='basis-1/6 select-none' key={item.route}>
 							<div className='group relative cursor-pointer overflow-hidden rounded-2xl border bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-lg'>

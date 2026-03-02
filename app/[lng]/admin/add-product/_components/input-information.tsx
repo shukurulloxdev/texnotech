@@ -17,13 +17,11 @@ import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { formatPrice } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
-import { useState } from 'react'
 import { ImagePlus } from 'lucide-react'
 import UploadImg from './upload-img'
 
 function InputInformation() {
-	const [isDiscount, setIsDiscount] = useState<boolean>(false)
-
+	
 	const form = useForm<z.infer<typeof addProductSchema>>({
 		resolver: zodResolver(addProductSchema),
 		defaultValues: {
@@ -37,10 +35,21 @@ function InputInformation() {
 			percent: '',
 		},
 	})
+	const isDiscount = form.watch('discount')
 
 	function onSubmit(values: z.infer<typeof addProductSchema>) {
 		console.log(values)
-	}
+	form.reset({
+  name: '',
+  category: '',
+  description: '',
+  brand: '',
+  price: '',
+  top: false,
+  discount: false,
+  percent: '',
+})
+ 	}
 	const price = Number(form.watch('price') || 0)
 	const percent = Number(form.watch('percent') || 0)
 
@@ -72,7 +81,7 @@ function InputInformation() {
 					</div>
 				</div>
 				<div className='grid grid-cols-3 items-start gap-4'>
-					<div className=' col-span-2 rounded-2xl border border-white/20 bg-white/5 p-6'>
+					<div className='col-span-2 rounded-2xl border border-white/20 bg-white/5 p-6'>
 						<div className='grid grid-cols-2 gap-4'>
 							<div className='rounded-2xl bg-white/5 p-4'>
 								<FormField
@@ -242,6 +251,7 @@ function InputInformation() {
 												<div className='flex items-center gap-2'>
 													<FormControl>
 														<Checkbox
+														  checked={field.value}
 															onCheckedChange={field.onChange}
 															className='
     size-6
@@ -278,7 +288,7 @@ function InputInformation() {
 														<Checkbox
 															checked={field.value}
 															onCheckedChange={checked => {
-																setIsDiscount(!!checked)
+																
 																field.onChange(checked)
 															}}
 															className='

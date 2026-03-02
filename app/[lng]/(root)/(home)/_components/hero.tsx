@@ -45,8 +45,7 @@ function Hero() {
 					</CarouselItem>
 				</CarouselContent>
 				<CarouselPrevious className='absolute left-2 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 shadow-md hover:bg-white sm:left-4 sm:size-10' />
-
-				{/* Next Button */}
+  
 				<CarouselNext className='absolute right-2 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 shadow-md hover:bg-white sm:right-4 sm:size-10' />
 			</Carousel>
 		</div>

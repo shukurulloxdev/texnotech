@@ -1,7 +1,7 @@
-import { bestSeller } from './../components/constants/index'
+
 import { LucideIcon } from 'lucide-react'
 import { ReactNode } from 'react'
-
+					
 export interface ChildProps {
 	children: ReactNode
 }
