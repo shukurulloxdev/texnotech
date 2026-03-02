@@ -278,7 +278,7 @@ function Location() {
                   </div>
                 </div>
 
-                <button className="group mt-16 flex w-full items-center justify-between overflow-hidden rounded-[2rem] bg-neutral-900 px-6 py-2 text-white transition-all hover:bg-pink-600 hover:shadow-[0_20px_40px_rgba(219,39,119,0.3)] active:scale-95">
+                <button className="group mt-16 flex w-full items-center justify-between overflow-hidden rounded-[2rem] bg-neutral-900 px-6 py-2 text-white transition-all duration-300 hover:bg-pink-600 hover:shadow-[0_20px_40px_rgba(219,39,119,0.3)] active:scale-95">
                   <span className="text-xs font-black uppercase tracking-[0.2em]">
                     Marshrutni ko&apos;rish
                   </span>
