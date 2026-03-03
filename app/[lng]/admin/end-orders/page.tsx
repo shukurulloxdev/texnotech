@@ -21,7 +21,7 @@ function Page() {
             className="h-11 bg-green-500 text-black transition-all duration-300 hover:scale-105 hover:bg-green-600 active:scale-95"
           >
             <Mails />
-            Yangi buyurtmalar
+            Yangi buyurtmalar Yangi buyurtmalar
           </Button>
         </Link>
       </div>
