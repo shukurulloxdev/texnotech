@@ -28,7 +28,9 @@ export interface AdminProductCardTip {
   status: string;
   image: string;
 }
-
+export interface searchParamsProps {
+  searchParams: { [key: string]: string | undefined };
+}
 export interface IProduct {
   _id: string;
   name: string;

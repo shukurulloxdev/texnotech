@@ -1,5 +1,6 @@
 "use server";
 
+import { clientAxios } from "@/http/axios";
 import { actionClient } from "@/lib/safe-action";
 import { idSchema, searchParamsSchema } from "@/lib/validation";
 import { ReturnActionType } from "@/types";
@@ -30,13 +31,12 @@ export const getProductById = actionClient
     return data;
   });
 
-const getProducts = actionClient
+export const getProducts = actionClient
   .schema(searchParamsSchema)
   .action<ReturnActionType>(async ({ parsedInput }) => {
-    const res = await fetch("http://localhost:8080/api/user/products", {
+    const { data } = await clientAxios.get("/api/user/products", {
       params: parsedInput,
     });
 
-    const data = await res.json();
-    return data;
+    return JSON.parse(JSON.stringify(data));
   });
