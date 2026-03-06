@@ -56,8 +56,18 @@ export const addCategorySchema = z.object({
       /^[a-z0-9-]+$/,
       "Slug faqat kichik harflar va '-' belgidan iborat bo‘lishi kerak",
     ),
+  seoTitle: z
+    .string()
+    .trim()
+    .min(10, "SEO title kamida 10 ta belgi bo‘lishi kerak")
+    .max(70, "SEO title 70 ta belgidan oshmasligi kerak"),
 
-  active: z.boolean().default(true),
+  seoDescription: z
+    .string()
+    .trim()
+    .min(20, "SEO description kamida 30 ta belgi bo‘lishi kerak")
+    .max(160, "SEO description 160 ta belgidan oshmasligi kerak"),
+
+  active: z.boolean().default(true).optional(),
+  image: z.string().optional(),
 });
-
-export type AddCategoryType = z.infer<typeof addCategorySchema>;

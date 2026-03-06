@@ -1,7 +1,11 @@
 "use server";
 
 import { actionClient } from "@/lib/safe-action";
-import { addProductSchema, idSchema } from "@/lib/validation";
+import {
+  addCategorySchema,
+  addProductSchema,
+  idSchema,
+} from "@/lib/validation";
 import { ReturnActionType } from "@/types";
 import { revalidatePath } from "next/cache";
 
@@ -27,6 +31,19 @@ export const createProduct = actionClient
     }
 
     const data = await response.json(); // shunday qilish kerak yani javobni ochib olamiz yani kutib olamiz response obyectidagi javobni js obyectga aylantiramiz
+    return data;
+  });
+
+export const createCategory = actionClient
+  .schema(addCategorySchema)
+  .action(async ({ parsedInput }) => {
+    const res = await fetch("http://localhost:8080/api/admin/add-category", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(parsedInput),
+    });
+
+    const data = await res.json();
     return data;
   });
 
