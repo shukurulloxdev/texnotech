@@ -39,7 +39,7 @@ function ProductActions({ product }: Props) {
         </div>
         {product.discount && (
           <div className="mb-1 rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-600 ring-1 ring-inset ring-red-600/10">
-            Saqlab qoling {product.percent}%
+            {product.percent}% Saqlab qoling
           </div>
         )}
       </div>
