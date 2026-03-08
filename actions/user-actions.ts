@@ -1,7 +1,7 @@
 "use server";
 
 import { actionClient } from "@/lib/safe-action";
-import { idSchema } from "@/lib/validation";
+import { idSchema, searchParamsSchema } from "@/lib/validation";
 import { ReturnActionType } from "@/types";
 
 export const getTopProducts = actionClient.action<ReturnActionType>(
@@ -27,5 +27,16 @@ export const getProductById = actionClient
 
     const data = await res.json();
 
+    return data;
+  });
+
+const getProducts = actionClient
+  .schema(searchParamsSchema)
+  .action<ReturnActionType>(async ({ parsedInput }) => {
+    const res = await fetch("http://localhost:8080/api/user/products", {
+      params: parsedInput,
+    });
+
+    const data = await res.json();
     return data;
   });

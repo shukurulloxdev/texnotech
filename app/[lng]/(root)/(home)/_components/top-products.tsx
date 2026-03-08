@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { IProduct } from "@/types";
+import Link from "next/link";
 
 interface Props {
   topProducts: IProduct[];
@@ -22,7 +23,10 @@ function PopProducts({ topProducts }: Props) {
         <h1 className="font-sora text-3xl font-semibold tracking-tight text-gray-800">
           Top texnikalar
         </h1>
-        <div className="group flex cursor-pointer items-center gap-1">
+        <Link
+          href={"/products?category=top"}
+          className="group flex cursor-pointer items-center gap-1"
+        >
           <span className="text-[18px] text-pink-600 transition-colors duration-300">
             Hammasini ko&apos;rish
           </span>
@@ -31,7 +35,7 @@ function PopProducts({ topProducts }: Props) {
             size={20}
             className="text-pink-600 transition-transform duration-300 ease-out group-hover:translate-x-1"
           />
-        </div>
+        </Link>
       </div>
       <div>
         <Carousel
