@@ -1,12 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Heart, ShoppingBag } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { Heart, ShoppingBag, Star } from "lucide-react";
 import { IProduct } from "@/types";
-import { formatCurrentPrice } from "@/lib/utils";
+import { formatCurrentPrice, cn } from "@/lib/utils";
 import Link from "next/link";
 
 interface Props {
@@ -15,66 +12,79 @@ interface Props {
 
 export default function ProductCard({ product }: Props) {
   if (!product) return null;
+
   return (
-    <Link href={`/product/${product._id}`}>
-      <Card className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-        <button className="absolute right-2 top-2 z-10 rounded-full bg-white p-2 shadow hover:bg-rose-50">
-          <Heart size={22} className="text-rose-500" />
-        </button>
-        <div className="absolute left-3 top-3 z-10 flex flex-col gap-1">
-          <Badge className="flex h-6 items-center justify-center bg-blue-600 px-2 text-[11px] font-medium text-white shadow hover:bg-blue-700">
-            Top
-          </Badge>
-
-          <Badge className="flex h-6 items-center justify-center bg-red-600 px-2 text-[11px] font-medium text-white shadow hover:bg-red-700">
-            -{product.percent}%
-          </Badge>
+    <div className="group flex w-full flex-col rounded-lg bg-white">
+      <div className="relative aspect-[6/7] w-full overflow-hidden rounded-3xl border border-transparent bg-white transition-all duration-500 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+        <div className="absolute left-3 top-3 z-20 flex flex-col gap-1.5">
+          {product.top && (
+            <span className="rounded-lg bg-neutral-900 px-2.5 py-1 text-[10px] font-bold text-white shadow-sm">
+              TOP
+            </span>
+          )}
+          {product.percent > 0 && (
+            <span className="rounded-lg bg-red-600 px-2.5 py-1 text-[10px] font-bold text-white shadow-sm">
+              -{product.percent}%
+            </span>
+          )}
         </div>
-        <CardContent className="p-5">
-          <div className="relative mb-5 aspect-square w-full overflow-hidden rounded-2xl bg-slate-50">
-            <Image
-              src={product.images[0]}
-              alt="iPhone"
-              fill
-              className="object-contain transition-transform duration-700 group-hover:scale-105"
-            />
+
+        <button className="absolute right-2 top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-100 bg-white/80 text-neutral-400 shadow-sm backdrop-blur-sm transition-all hover:scale-110 hover:text-red-500 active:scale-90">
+          <Heart size={22} />
+        </button>
+
+        <Link href={`/product/${product._id}`} className="block h-full w-full">
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover p-6 transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+        </Link>
+      </div>
+
+      <div className="flex flex-col space-y-2 p-4">
+        <div className="flex items-center justify-between">
+          <span className="text-[11px] font-black uppercase tracking-[0.1em] text-neutral-400">
+            {product.brand || "Original"}
+          </span>
+          <div className="flex items-center gap-1">
+            <Star size={12} fill="#FACC15" className="text-yellow-400" />
+            <span className="text-[12px] font-bold text-neutral-800">4.9</span>
           </div>
+        </div>
 
-          <p className="mb-1 text-[13px] font-bold text-blue-500 line-through">
-            {product.price.toLocaleString()} so‘m
-          </p>
-          <p className="mb-1 text-2xl font-bold text-pink-600">
-            {formatCurrentPrice(product.price, product.percent)} so‘m
-          </p>
-
-          <h3 className="mb-1 line-clamp-2 text-[16px] font-medium text-slate-900">
+        <Link href={`/product/${product._id}`}>
+          <h3 className="line-clamp-2 min-h-[40px] text-[15px] font-semibold leading-snug text-neutral-900 transition-colors hover:text-blue-600">
             {product.name}
           </h3>
+        </Link>
 
-          <p className="mb-4 text-xs text-slate-400">
-            Brand:{" "}
-            <span className="font-semibold text-pink-600 underline">
-              {product.brand}
+        <div className="flex items-baseline gap-2">
+          <span className="text-xl font-black text-neutral-900">
+            {formatCurrentPrice(product.price, product.percent)}
+          </span>
+          {product.percent > 0 && (
+            <span className="text-xs font-medium text-neutral-400 line-through">
+              {product.price.toLocaleString()}
             </span>
-          </p>
+          )}
+        </div>
 
-          <div className="flex w-full items-center gap-2">
-            <Button
-              variant="secondary"
-              className="h-10 w-[70%] rounded-xl bg-slate-100 text-slate-900 hover:bg-pink-600 hover:text-white"
-            >
-              Hozir xarid qilish
-            </Button>
-
-            <Button
-              size="icon"
-              className="size-10 w-[30%] rounded-xl bg-pink-600 hover:bg-pink-700"
-            >
-              <ShoppingBag size={22} />
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </Link>
+        <div className="flex items-center gap-2 pt-2">
+          <Link
+            href={`/product/${product._id}`}
+            className="flex h-10 flex-1 items-center justify-center rounded-xl border border-neutral-900 bg-white text-[12px] font-bold uppercase tracking-wider text-neutral-900 transition-all hover:border-none hover:bg-pink-600 hover:text-white"
+          >
+            Sotib olish
+          </Link>
+          <button className="flex h-10 w-11 items-center justify-center rounded-xl bg-pink-600 text-white shadow-lg shadow-neutral-200 transition-all hover:bg-pink-700 active:scale-95">
+            <ShoppingBag size={20} />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }

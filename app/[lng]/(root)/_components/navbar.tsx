@@ -1,139 +1,242 @@
-'use client'
-import { navLinks } from '@/components/constants'
-import LngMenu from '@/components/shared/lng-menu'
-import Logo from '@/components/shared/logo'
-import { Input } from '@/components/ui/input'
-import { useTranslation } from '@/i18n/client'
-import { cn } from '@/lib/utils'
-import {
-	GalleryVerticalEnd,
-	Heart,
-	ShoppingCart,
-	User,
-	Search,
-} from 'lucide-react'
-import Link from 'next/link'
-import { useParams, usePathname } from 'next/navigation'
-import React from 'react'
+// "use client";
+// import React, { useState, useEffect } from "react";
+// import Link from "next/link";
+// import { useParams, usePathname } from "next/navigation";
+// import {
+//   Heart,
+//   ShoppingBag,
+//   User,
+//   Search,
+//   LayoutGrid,
+//   Bell,
+//   ChevronDown,
+//   Sparkles,
+// } from "lucide-react";
+// import { cn } from "@/lib/utils";
+// import Logo from "@/components/shared/logo";
+// import { useTranslation } from "@/i18n/client";
+// import LngMenu from "@/components/shared/lng-menu";
 
-function Navbar() {
-	const { lng } = useParams()
-	const { t } = useTranslation(lng as string, 'home')
-	const pathname = usePathname()
-	return (
-		<div className='sticky inset-0 z-50 bg-slate-50 shadow-lg'>
-			<div className='border-b bg-slate-100  backdrop-blur-md'>
-				<div className='mx-auto max-w-7xl '>
-				    <div className='flex h-10 items-center justify-between text-[15px] text-gray-600'>
-						<nav className='flex items-center gap-6 font-medium'>
-						    {navLinks.map(item => (
-								<Link
-									key={item.name}
-									href={`/${lng}/${item.route}`}
-									className={cn(
-										'relative transition-colors hover:text-black',
-										pathname === `/${lng}/${item.route}` &&
-											'text-black after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-orange-400'
-									)}
-								>
-									{t(item.name)}
-								</Link>
-							))}
-						</nav>
+// function Navbar() {
+//   const { lng } = useParams();
+//   const { t } = useTranslation(lng as string, "home");
+//   const pathname = usePathname();
+//   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-						<div className='flex items-center gap-6 text-[15px]'>
-							<span className='transition hover:text-black'>
-								texnotech@gmail.com
-							</span>
+//   return (
+//     <div className="sticky top-0 z-[100] border-b border-neutral-100 bg-white shadow-xl backdrop-blur-2xl">
+//       <div className="mx-auto max-w-7xl py-3">
+//         <div className="flex items-center justify-between gap-10">
+//           {/* Logo & Catalog */}
+//           <div className="flex items-center gap-8">
+//             <Logo />
+//             <button className="group hidden items-center gap-3 rounded-2xl bg-pink-600 px-6 py-3 text-white shadow-[0_10px_25px_-5px_rgba(219,39,119,0.4)] transition-all hover:bg-pink-700 active:scale-95 xl:flex">
+//               <LayoutGrid
+//                 size={20}
+//                 className="transition-transform duration-500 group-hover:rotate-90"
+//               />
+//               <span className="text-sm font-black uppercase tracking-wider">
+//                 Katalog
+//               </span>
+//             </button>
+//           </div>
 
-							<span className='transition hover:text-black'>
-								+998 (90) 201 58-58
-							</span>
+//           {/* Smart Search Architecture */}
+//           <div
+//             className={cn(
+//               "relative max-w-2xl flex-1 transition-all duration-500",
+//               isSearchFocused ? "scale-[1.02]" : "",
+//             )}
+//           >
+//             <div className="relative flex items-center">
+//               <input
+//                 onFocus={() => setIsSearchFocused(true)}
+//                 onBlur={() => setIsSearchFocused(false)}
+//                 type="text"
+//                 placeholder="Smart qidiruv: iPhone 15 Pro..."
+//                 className="h-14 w-full rounded-[1.25rem] border-2 border-transparent bg-neutral-100 pl-14 pr-32 text-sm font-bold transition-all focus:border-pink-200 focus:bg-white"
+//               />
+//               <Search className="absolute left-5 text-neutral-400" size={22} />
 
-							<span className='cursor-pointer font-medium '>
-								Malumot qoldirish
-							</span>
+//               {/* Search Quick Actions */}
+//               <div className="absolute right-3 flex items-center gap-2">
+//                 <button className="rounded-xl bg-neutral-900 px-5 py-2.5 text-[11px] font-black uppercase tracking-widest text-white shadow-lg transition-colors hover:bg-pink-600">
+//                   Qidirish
+//                 </button>
+//               </div>
+//             </div>
 
-							<LngMenu />
-						</div>
-					</div>
-				</div>
-			</div>
+//             {/* Search Suggestions Dropdown (Only on Focus) */}
+//             {isSearchFocused && (
+//               <div className="absolute left-0 top-[110%] w-full rounded-[2rem] border border-neutral-100 bg-white p-6 shadow-2xl animate-in fade-in slide-in-from-top-2">
+//                 <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-neutral-400">
+//                   <Sparkles size={14} className="text-pink-500" />
+//                   Ommabop qidiruvlar
+//                 </div>
+//                 <div className="flex flex-wrap gap-2">
+//                   {[
+//                     "AirPods Pro",
+//                     "Samsung S24",
+//                     "Gaming Laptop",
+//                     "Nike Air",
+//                   ].map((tag) => (
+//                     <span
+//                       key={tag}
+//                       className="cursor-pointer rounded-full border border-neutral-100 bg-neutral-50 px-4 py-2 text-xs font-bold transition-all hover:bg-pink-50 hover:text-pink-600"
+//                     >
+//                       {tag}
+//                     </span>
+//                   ))}
+//                 </div>
+//               </div>
+//             )}
+//           </div>
 
-			<div className='mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 '>
-				<div className='pr-12'>
-					<Logo />
-				</div>
+//           {/* Action Center - User Interface */}
+//           <div className="flex items-center gap-3">
+//             {/* Notifications */}
+//             <button className="relative rounded-2xl bg-neutral-50 p-3.5 text-neutral-700 transition-all hover:bg-pink-50 hover:text-pink-600">
+//               <Bell size={24} strokeWidth={2.3} />
+//               <span className="absolute right-3 top-3 h-2.5 w-2.5 rounded-full border-2 border-white bg-pink-600" />
+//             </button>
 
-				<div className='relative w-full max-w-xl'>
-					<Input
-						placeholder='Istalgan narsangizni qidiring...'
-						className='
-			h-10 w-full rounded-2xl border border-gray-200 bg-white/95
-			pl-4 pr-14 text-sm
-			shadow-sm transition
-			placeholder:text-gray-400
-			focus:border-transparent focus:ring-2 focus:ring-orange-400
-		'
-					/>
+//             {/* Wishlist */}
+//             <button className="group relative rounded-2xl bg-neutral-50 p-3.5 text-neutral-700 transition-all hover:bg-pink-50 hover:text-pink-600">
+//               <Heart
+//                 size={24}
+//                 strokeWidth={2.3}
+//                 className="group-hover:fill-pink-600"
+//               />
+//               <div className="absolute -right-2 -top-2 rounded-full bg-neutral-900 px-2 py-0.5 text-[10px] font-black text-white ring-4 ring-white">
+//                 12
+//               </div>
+//             </button>
 
-					<button
-						type='button'
-						className='
-			absolute right-1 top-1/2 flex
-			h-9 w-12 -translate-y-1/2 items-center justify-center
-			rounded-xl bg-blue-500 text-white
-			shadow-md transition
-			hover:scale-105 hover:bg-blue-600
-			active:scale-95
-		'
-					>
-						<Search className='size-[18px]' />
-					</button>
-				</div>
-				<div className='flex items-center gap-4'>
-					<div className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'>
-						<GalleryVerticalEnd
-							className='size-6 text-blue-500 transition group-hover:scale-110'
-							size={24}
-						/>
-						<span className='text-sm font-semibold text-gray-700 transition group-hover:text-blue-600'>
-							Katalog
-						</span>
-					</div>
-					<div className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'>
-						<Heart
-							className='size-6 text-red-500 transition group-hover:scale-110'
-							size={24}
-						/>
-						<span className='text-sm font-semibold text-gray-700 transition group-hover:text-red-600'>
-							Sevimlilar
-						</span>
-					</div>
+//             {/* Cart Hub */}
+//             <button className="group flex items-center gap-4 rounded-2xl border border-transparent bg-neutral-50 p-1.5 pr-6 transition-all hover:border-pink-100 hover:bg-pink-50">
+//               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm transition-all group-hover:bg-pink-600 group-hover:text-white">
+//                 <ShoppingBag size={22} />
+//               </div>
+//               <div className="flex flex-col items-start">
+//                 <span className="text-[10px] font-black uppercase tracking-tighter text-neutral-400">
+//                   Savatda
+//                 </span>
+//                 <span className="text-sm font-black text-neutral-900">
+//                   12.500.000 UZS
+//                 </span>
+//               </div>
+//             </button>
 
-					<div className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'>
-						<ShoppingCart
-							className='size-6 text-blue-500 transition group-hover:scale-110'
-							size={24}
-						/>
-						<span className='text-sm font-semibold text-gray-700 transition group-hover:text-blue-600'>
-							Savat
-						</span>
-					</div>
+//             {/* User Dashboard Container */}
+//             <div className="ml-2 border-l border-neutral-100 pl-6">
+//               <button className="group flex items-center gap-3">
+//                 <div className="relative h-12 w-12 overflow-hidden rounded-2xl ring-2 ring-transparent transition-all group-hover:ring-pink-600">
+//                   <div className="absolute inset-0 flex items-center justify-center bg-pink-100 text-pink-600">
+//                     <User size={24} />
+//                   </div>
+//                 </div>
+//                 <div className="hidden flex-col items-start xl:flex">
+//                   <span className="text-[11px] font-black uppercase text-pink-600">
+//                     Xush kelibsiz
+//                   </span>
+//                   <div className="flex items-center gap-1">
+//                     <span className="text-[13px] font-black uppercase text-neutral-900">
+//                       Profilim
+//                     </span>
+//                     <ChevronDown
+//                       size={14}
+//                       className="text-neutral-400 transition-transform group-hover:rotate-180"
+//                     />
+//                   </div>
+//                 </div>
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
 
-					<Link
-						href={'/admin'}
-						className='group flex cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-2 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl'
-					>
-						<User
-							className='size-6 text-green-500 transition group-hover:scale-110'
-							size={24}
-						/>
-					</Link>
-				</div>
-			</div>
-		</div>
-	)
-}
+//       {/* 3. Sub-Navigation (Categories & Trends) */}
+//       <div className="border-t border-neutral-100 bg-white/50 py-3 backdrop-blur-sm">
+//         <div className="mx-auto flex max-w-7xl">
+//           <nav className="flex w-full items-center justify-between gap-2">
+//             {[
+//               "Yangi kelganlar",
+//               "Smartfonlar",
+//               "Noutbuklar",
+//               "Planshetlar",
+//               "Aksessuarlar",
+//               "Televizorlar",
+//               "Maishiy texnikalar",
+//             ].map((cat, index, array) => (
+//               <React.Fragment key={cat}>
+//                 <Link
+//                   href="#"
+//                   className="group flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.15em] text-neutral-500 transition-all hover:text-pink-600"
+//                 >
+//                   <div className="relative flex h-2 w-2 items-center justify-center">
+//                     <div className="h-1.5 w-1.5 rounded-full bg-pink-100 transition-all duration-300 group-hover:h-2 group-hover:w-2 group-hover:bg-pink-600 group-hover:shadow-[0_0_10px_rgba(219,39,119,0.5)]" />
+//                   </div>
 
-export default Navbar
+//                   <span className="whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">
+//                     {cat}
+//                   </span>
+//                 </Link>
+
+//                 {/* Separator - Oxirgi elementdan keyin chiqmaydi */}
+//                 {index !== array.length - 1 && (
+//                   <div className="mx-1 h-4 w-[1px] bg-neutral-100" />
+//                 )}
+//               </React.Fragment>
+//             ))}
+//           </nav>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Navbar;
+// ... Navbar kodi ichida (Action Center qismida)
+
+<div className="flex items-center gap-3">
+  {/* Bildirishnomalar */}
+  <button className="relative rounded-2xl bg-neutral-50 p-3.5 text-neutral-700 transition-all hover:bg-pink-50 hover:text-pink-600">
+    <Bell size={24} strokeWidth={2.3} />
+    <span className="absolute right-3 top-3 h-2.5 w-2.5 rounded-full border-2 border-white bg-pink-600" />
+  </button>
+
+  {/* Sevimlilar */}
+  <button className="group relative rounded-2xl bg-neutral-50 p-3.5 text-neutral-700 transition-all hover:bg-pink-50 hover:text-pink-600">
+    <Heart size={24} strokeWidth={2.3} className="group-hover:fill-pink-600" />
+    <div className="absolute -right-2 -top-2 rounded-full bg-neutral-900 px-2 py-0.5 text-[10px] font-black text-white ring-4 ring-white">
+      12
+    </div>
+  </button>
+
+  {/* LngMenu - Yangi Joylashuv: Savatdan oldin nafis turadi */}
+  <div className="mx-1 border-x border-neutral-100 px-2">
+    <LngMenu />
+  </div>
+
+  {/* Savat Hub */}
+  <button className="group flex items-center gap-4 rounded-2xl border border-transparent bg-neutral-50 p-1.5 pr-6 transition-all hover:border-pink-100 hover:bg-pink-50">
+    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm transition-all group-hover:bg-pink-600 group-hover:text-white">
+      <ShoppingBag size={22} />
+    </div>
+    <div className="flex flex-col items-start leading-tight">
+      <span className="text-[10px] font-black uppercase tracking-tighter text-neutral-400">
+        Savatda
+      </span>
+      <span className="text-[13px] font-black text-neutral-900">
+        12.500.000 UZS
+      </span>
+    </div>
+  </button>
+
+  {/* User Dashboard */}
+  <div className="ml-2 border-l border-neutral-100 pl-4">
+    <button className="group flex items-center gap-3">
+      {/* ... Profil kodi ... */}
+    </button>
+  </div>
+</div>;

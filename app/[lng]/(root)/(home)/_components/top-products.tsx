@@ -18,7 +18,7 @@ function PopProducts({ topProducts }: Props) {
   console.log("Hammasi", topProducts.length);
   return (
     <section className="mx-auto max-w-7xl py-3">
-      <div className="flex items-end justify-between">
+      <div className="flex items-end justify-between pb-2">
         <h1 className="font-sora text-3xl font-semibold tracking-tight text-gray-800">
           Top texnikalar
         </h1>
