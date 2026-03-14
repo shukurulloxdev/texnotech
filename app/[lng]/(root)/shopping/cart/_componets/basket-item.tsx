@@ -34,8 +34,8 @@ export default function BasketItem({ product }: { product: IProduct }) {
               <ShieldCheck size={12} />
               Sotuvda bor
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">
-              Sotuvchi: {product.brand || "Texnotech"}
+            <span className="text-[10px] font-bold uppercase tracking-widest text-pink-500">
+              Mahsulot kodi: {"11712"}
             </span>
           </div>
         </div>

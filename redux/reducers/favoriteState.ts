@@ -1,3 +1,8 @@
+import {
+  clearFavoritesFromStorage,
+  getFavoritesFromStorage,
+  saveFavoritesToStorage,
+} from "@/lib/favorites-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface favoriteIdsType {
@@ -5,27 +10,30 @@ interface favoriteIdsType {
 }
 
 const initialState: favoriteIdsType = {
-  favoriteIds: [],
+  favoriteIds: getFavoritesFromStorage(),
 };
 
 const favoriteState = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addFavorite: (state, action: PayloadAction<string>) => {
-      state.favoriteIds.push(action.payload);
-    },
-    deleteFavorite: (state, action: PayloadAction<string>) => {
-      state.favoriteIds = state.favoriteIds.filter(
-        (product) => product !== action.payload,
-      );
+    toggelFavorite: (state, action: PayloadAction<string>) => {
+      const exists = state.favoriteIds.includes(action.payload);
+      if (exists) {
+        state.favoriteIds = state.favoriteIds.filter(
+          (id) => id !== action.payload,
+        );
+      } else {
+        state.favoriteIds.push(action.payload);
+      }
+      saveFavoritesToStorage(state.favoriteIds);
     },
     removeAllFavorites: (state) => {
       state.favoriteIds = [];
+      clearFavoritesFromStorage();
     },
   },
 });
-export const { addFavorite, deleteFavorite, removeAllFavorites } =
-  favoriteState.actions;
+export const { toggelFavorite, removeAllFavorites } = favoriteState.actions;
 
 export default favoriteState.reducer;

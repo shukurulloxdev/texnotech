@@ -1,3 +1,8 @@
+import {
+  getBasketIdsStorage,
+  removeBasketIdsStorage,
+  setBasketIdsStorage,
+} from "@/local-storage/basket-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface basketIdsType {
@@ -5,7 +10,7 @@ interface basketIdsType {
 }
 
 const initialState: basketIdsType = {
-  basketIds: [],
+  basketIds: getBasketIdsStorage(),
 };
 
 const basketState = createSlice({
@@ -13,18 +18,22 @@ const basketState = createSlice({
   initialState,
   reducers: {
     addBasket: (state, action: PayloadAction<string>) => {
-      state.basketIds.push(action.payload);
-    },
-    deleteBasket: (state, action: PayloadAction<string>) => {
-      state.basketIds = state.basketIds.filter(
-        (product) => product !== action.payload,
-      );
+      const isBasket = state.basketIds.includes(action.payload);
+      if (isBasket) {
+        state.basketIds = state.basketIds.filter(
+          (product) => product !== action.payload,
+        );
+      } else {
+        state.basketIds.push(action.payload);
+      }
+      setBasketIdsStorage(state.basketIds);
     },
     removeBasketIds: (state) => {
       state.basketIds = [];
+      removeBasketIdsStorage();
     },
   },
 });
-export const { addBasket, deleteBasket, removeBasketIds } = basketState.actions;
+export const { addBasket, removeBasketIds } = basketState.actions;
 
 export default basketState.reducer;

@@ -13,7 +13,7 @@ import { formatCurrentPrice, cn } from "@/lib/utils";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { addFavorite, deleteFavorite } from "@/redux/reducers/favoriteState";
+import { toggelFavorite } from "@/redux/reducers/favoriteState";
 import { addBasket, deleteBasket } from "@/redux/reducers/basketState";
 
 interface Props {
@@ -72,14 +72,7 @@ export default function ProductCard({ product, view }: Props) {
 
         {/* Heart Button */}
         <button
-          onClick={(e) => {
-            e.preventDefault(); // Sahifa o'tishini to'xtatadi
-            if (isFavorite) {
-              dispatch(deleteFavorite(product._id));
-            } else {
-              dispatch(addFavorite(product._id));
-            }
-          }}
+          onClick={() => dispatch(toggelFavorite(product._id))}
           className={cn(
             "absolute z-20 flex items-center justify-center rounded-full border border-neutral-100 bg-white/80 text-neutral-400 shadow-sm backdrop-blur-sm transition-all hover:scale-110 active:scale-90",
             isFavorite ? "hover:text-neutral-500" : "hover:text-red-500",

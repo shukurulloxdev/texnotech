@@ -8,6 +8,7 @@ import {
   Truck,
   ChevronRight,
   ShieldCheck,
+  FileInput,
 } from "lucide-react";
 import { IProduct } from "@/types";
 
@@ -95,7 +96,7 @@ function BasketSummary({ products }: Props) {
               </span>
             </div>
 
-            <div className="mt-4 border-t border-neutral-50 px-1 pt-6">
+            <div className="mt-4 border-t border-pink-100 px-1 pt-6">
               <div className="mb-2 flex items-center gap-2">
                 <HandCoins size={14} className="text-neutral-300" />
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400">
@@ -113,26 +114,23 @@ function BasketSummary({ products }: Props) {
             </div>
           </div>
 
-          {/* AMALLAR TUGMALARI */}
-          <div className="mt-10 space-y-3">
-            <button className="group relative h-14 w-full overflow-hidden rounded-2xl bg-pink-600 shadow-xl shadow-pink-200 transition-all active:scale-95">
-              <div className="absolute inset-0 translate-y-full bg-pink-700 transition-transform duration-300 group-hover:translate-y-0" />
+          <div className="mt-6 space-y-3">
+            {/* Savatga qo'shish (Asosiy tugma) */}
+
+            {/* Tozalash (Ikkinchi darajali) */}
+            <button className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-neutral-100 bg-white text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition-all hover:border-red-100 hover:bg-red-50 hover:text-red-500 active:scale-95">
+              <Trash2 size={14} />
+              Hammasini tozalsh
+            </button>
+            <button className="group relative h-12 w-full overflow-hidden rounded-2xl bg-pink-600 transition-all active:scale-95">
+              {/* Hoverda chiqadigan gradient fon */}
+              <div className="absolute inset-0 translate-y-full bg-pink-700/40 transition-transform duration-300 group-hover:translate-y-0" />
+
               <div className="relative z-10 flex items-center justify-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-white">
-                <span>Rasmiylashtirishga o'tish</span>
-                <ChevronRight size={16} strokeWidth={3} />
+                <FileInput size={18} />
+                <span>Rasmiylashtirish</span>
               </div>
             </button>
-
-            <button className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-neutral-100 bg-white text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition-all hover:bg-red-50 hover:text-red-500 active:scale-95">
-              <Trash2 size={14} />
-              Savatni tozalash
-            </button>
-          </div>
-
-          {/* SECURITY TRUST */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-[8px] font-black uppercase tracking-[0.3em] text-neutral-300">
-            <ShieldCheck size={12} />
-            <span>Texnotech Safe Checkout</span>
           </div>
         </div>
       </div>

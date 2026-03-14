@@ -75,11 +75,7 @@ function FavoriteSidebar({ products }: Props) {
           </div>
         </div>
 
-        {/* AMALLAR TUGMALARI (ZAMONAVIY) */}
         <div className="mt-10 space-y-3">
-          {/* Savatga qo'shish (Asosiy tugma) */}
-
-          {/* Tozalash (Ikkinchi darajali) */}
           <button className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-neutral-100 bg-white text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 transition-all hover:border-red-100 hover:bg-red-50 hover:text-red-500 active:scale-95">
             <Trash2 size={14} />
             Hammasini tozalsh

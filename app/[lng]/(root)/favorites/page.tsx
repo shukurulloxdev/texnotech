@@ -19,17 +19,6 @@ async function Page() {
         </aside>
       </div>
     </main>
-    // <div className="pb-24 font-sans">
-    //   <div className="mx-auto max-w-7xl pt-6">
-
-    //     <div className="flex flex-row gap-4">
-    //       <AllProducts products={topProducts.data?.products || []} />
-    //       <div className="sticky top-36 w-[320px] shrink-0 self-start">
-    //         <FavoriteFidebar products={topProducts.data?.products || []} />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 
