@@ -171,7 +171,10 @@ function Navbar() {
               <span className="absolute right-3 top-3 h-2.5 w-2.5 rounded-full border-2 border-white bg-pink-600" />
             </button>
 
-            <button className="group relative rounded-2xl bg-neutral-50 p-3.5 text-neutral-700 transition-all hover:bg-pink-50 hover:text-pink-600">
+            <Link
+              href={"/favorites"}
+              className="group relative rounded-2xl bg-neutral-50 p-3.5 text-neutral-700 transition-all hover:bg-pink-50 hover:text-pink-600"
+            >
               <Heart
                 size={24}
                 strokeWidth={2.3}
@@ -180,10 +183,13 @@ function Navbar() {
               <div className="absolute -right-2 -top-2 rounded-full bg-neutral-900 px-2 py-0.5 text-[10px] font-black text-white ring-4 ring-white">
                 12
               </div>
-            </button>
+            </Link>
 
-            <button className="group flex items-center gap-4 rounded-2xl border border-transparent bg-neutral-50 p-1.5 pr-6 transition-all hover:border-pink-100 hover:bg-pink-50">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm transition-all group-hover:bg-pink-600 group-hover:text-white">
+            <Link
+              href={"/shopping/cart"}
+              className="group flex items-center gap-4 rounded-2xl border border-transparent bg-neutral-50 p-1.5 pr-6 transition-all hover:border-pink-100 hover:bg-pink-50"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm transition-all duration-300 group-hover:bg-pink-600 group-hover:text-white">
                 <ShoppingBag size={22} />
               </div>
               <div className="flex flex-col items-start">
@@ -194,7 +200,7 @@ function Navbar() {
                   12.500.000 UZS
                 </span>
               </div>
-            </button>
+            </Link>
 
             <Link
               href={"/admin"}

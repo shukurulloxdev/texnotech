@@ -50,7 +50,7 @@ function RootLayout({ children, params: { lng } }: Props) {
       <body
         className={`${sora.variable} ${manrope.variable} ${poppins.variable} ${inter.variable} overflow-x-hidden antialiased`}
       >
-        <NextTopLoader showSpinner={false} />
+        <NextTopLoader showSpinner={false} color="#ec4899" />
         <CookieProvider>{children}</CookieProvider>
         <Toaster position="top-center" />
       </body>

@@ -61,7 +61,7 @@ async function Page({ params, searchParams }: Props) {
 
   const title = slug.replace(/-/g, " ");
   return (
-    <main className="mx-auto max-w-7xl py-8">
+    <main className="mx-auto max-w-7xl py-6">
       <div className="flex gap-4">
         <aside className="w-72">
           <div className="sticky top-36 space-y-6">
